@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_lab06/body.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Lab06AdvancedUI());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+/*
+  NAVIGATION
+  1. Drawer
+  2. Bottom Nav
+  3. Tab
+*/
+
+class Lab06AdvancedUI extends StatelessWidget {
+  const Lab06AdvancedUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,64 +21,40 @@ class MyApp extends StatelessWidget {
       title: 'Lab06 Advanced UI',
       home: Scaffold(
         drawer: Drawer(
-          backgroundColor: Colors.white,
+          backgroundColor: const Color.fromARGB(255, 242, 245, 247),
           child: ListView(
             children: [
-              DrawerHeader(
-                child: Row(
-                  children: [
-                    Icon(Icons.people_alt_rounded),
-                    Text('Contacts', style: TextStyle(color: Colors.black)),
-                  ],
+              Container(
+                height: 80,
+                child: DrawerHeader(
+                  child: Row(
+                    children: [
+                      Icon(Icons.people_alt_rounded),
+                      Text("Contacts"),
+                    ],
+                  ),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.mobile_friendly),
+                leading: Icon(Icons.mobile_screen_share),
                 title: Text("Device"),
-                trailing: Text('0'),
+                trailing: Text("Anything"),
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
-                trailing: Text('1'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text("Info"),
-                trailing: Text('2'),
+                leading: Icon(Icons.mobile_screen_share),
+                title: Text("Contacts"),
+                trailing: Text("Anything"),
                 onTap: () {},
               ),
             ],
           ),
         ),
         appBar: AppBar(
-          title: const Text('Lab06 Advance UI'),
+          title: const Text('Lab06 Advanced UI'),
           backgroundColor: Colors.amber,
         ),
-        body: Center(
-          child: Text(
-            "Working with Navigation",
-            style: TextStyle(fontSize: 60),
-          ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: "Search",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Settings",
-            ),
-          ],
-        ),
+        body: AppBody(),
       ),
     );
   }
